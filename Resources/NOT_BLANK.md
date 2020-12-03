@@ -1,1 +1,0 @@
-NOT BLANK

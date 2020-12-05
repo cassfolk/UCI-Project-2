@@ -2,7 +2,6 @@
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/4ZXilY
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
-
 CREATE TABLE minimum_wage (
     Year INT   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -12,8 +11,18 @@ CREATE TABLE minimum_wage (
      )
 );
 
+CREATE TABLE rent_info (
+    City_Code INT   NOT NULL,
+    City VARCHAR(100)   NOT NULL,
+    County VARCHAR(100)   NOT NULL,
+    State CHAR(2)   NOT NULL)
+	CONSTRAINT pk_rent_info PRIMARY KEY (
+        Year
+     );
+
 CREATE TABLE rent_prices_2011 (
     City_Code INT   NOT NULL,
+	Year INT NOT NULL,
     City VARCHAR(100)   NOT NULL,
     County VARCHAR(100)   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -36,6 +45,7 @@ CREATE TABLE rent_prices_2011 (
 
 CREATE TABLE rent_prices_2012 (
     City_Code INT   NOT NULL,
+	Year INT NOT NULL,
     City VARCHAR(100)   NOT NULL,
     County VARCHAR(100)   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -58,6 +68,7 @@ CREATE TABLE rent_prices_2012 (
 
 CREATE TABLE rent_prices_2013 (
     City_Code INT   NOT NULL,
+	Year INT NOT NULL,
     City VARCHAR(100)   NOT NULL,
     County VARCHAR(100)   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -80,6 +91,7 @@ CREATE TABLE rent_prices_2013 (
 
 CREATE TABLE rent_prices_2014 (
     City_Code INT   NOT NULL,
+	Year INT NOT NULL,
     City VARCHAR(100)   NOT NULL,
     County VARCHAR(100)   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -102,6 +114,7 @@ CREATE TABLE rent_prices_2014 (
 
 CREATE TABLE rent_prices_2015 (
     City_Code INT   NOT NULL,
+	Year INT NOT NULL,
     City VARCHAR(100)   NOT NULL,
     County VARCHAR(100)   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -124,6 +137,7 @@ CREATE TABLE rent_prices_2015 (
 
 CREATE TABLE rent_prices_2016 (
     City_Code INT   NOT NULL,
+	Year INT NOT NULL,
     City VARCHAR(100)   NOT NULL,
     County VARCHAR(100)   NOT NULL,
     State CHAR(2)   NOT NULL,
@@ -144,21 +158,21 @@ CREATE TABLE rent_prices_2016 (
      )
 );
 
-ALTER TABLE rent_prices_2011 ADD CONSTRAINT fk_rent_prices_2011_State FOREIGN KEY(State)
-REFERENCES minimum_wage (State);
+ALTER TABLE rent_prices_2011 ADD CONSTRAINT fk_rent_prices_2011_State FOREIGN KEY(Year)
+REFERENCES minimum_wage (Year);
 
-ALTER TABLE rent_prices_2012 ADD CONSTRAINT fk_rent_prices_2012_State FOREIGN KEY(State)
-REFERENCES minimum_wage (State);
+ALTER TABLE rent_prices_2012 ADD CONSTRAINT fk_rent_prices_2012_State FOREIGN KEY(Year)
+REFERENCES minimum_wage (Year);
 
-ALTER TABLE rent_prices_2013 ADD CONSTRAINT fk_rent_prices_2013_State FOREIGN KEY(State)
-REFERENCES minimum_wage (State);
+ALTER TABLE rent_prices_2013 ADD CONSTRAINT fk_rent_prices_2013_State FOREIGN KEY(Year)
+REFERENCES minimum_wage (Year);
 
-ALTER TABLE rent_prices_2014 ADD CONSTRAINT fk_rent_prices_2014_State FOREIGN KEY(State)
-REFERENCES minimum_wage (State);
+ALTER TABLE rent_prices_2014 ADD CONSTRAINT fk_rent_prices_2014_State FOREIGN KEY(Year)
+REFERENCES minimum_wage (Year);
 
-ALTER TABLE rent_prices_2015 ADD CONSTRAINT fk_rent_prices_2015_State FOREIGN KEY(State)
-REFERENCES minimum_wage (State);
+ALTER TABLE rent_prices_2015 ADD CONSTRAINT fk_rent_prices_2015_State FOREIGN KEY(Year)
+REFERENCES minimum_wage (Year);
 
-ALTER TABLE rent_prices_2016 ADD CONSTRAINT fk_rent_prices_2016_State FOREIGN KEY(State)
-REFERENCES minimum_wage (State);
+ALTER TABLE rent_prices_2016 ADD CONSTRAINT fk_rent_prices_2016_State FOREIGN KEY(Year)
+REFERENCES minimum_wage (Year);
 
